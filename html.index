@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metroplaza Parking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" id="login-container">
+        <div class="form-container">
+            <h2 class="title">Metroplaza Parking</h2>
+            <div class="form-box" id="login-box">
+                <form id="login-form">
+                    <h3>Login</h3>
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit" class="btn">Login</button>
+                    <p class="message">
+                        Not registered? <a href="#" id="show-signup">Create an account</a>
+                    </p>
+                    <p class="message">
+                        <a href="#" id="show-forgot-password">Forgot Password?</a>
+                    </p>
+                </form>
+            </div>
+            
+            <div class="form-box hidden" id="signup-box">
+                <form id="signup-form">
+                    <h3>Sign Up</h3>
+                    <input type="text" id="signup-name" placeholder="Full Name" required>
+                    <input type="email" id="signup-email" placeholder="Email" required>
+                    <input type="password" id="signup-password" placeholder="Password" required>
+                    <input type="text" id="signup-rfid" placeholder="RFID Card ID" required>
+                    <input type="text" id="signup-plate" placeholder="Vehicle Plate Number" required>
+                    <button type="submit" class="btn">Sign Up</button>
+                    <p class="message">
+                        Already have an account? <a href="#" id="show-login">Login</a>
+                    </p>
+                </form>
+            </div>
+
+            <div class="form-box hidden" id="verification-box">
+                <form id="verification-form">
+                    <h3>Verify Your Email</h3>
+                    <p>A verification code has been sent to your email.</p>
+                    <input type="text" id="verification-code" placeholder="Enter Code" required>
+                    <button type="submit" class="btn">Verify</button>
+                    <p class="message">
+                        <a href="#" id="resend-code">Resend Code</a>
+                    </p>
+                </form>
+            </div>
+
+            <div class="form-box hidden" id="forgot-password-box">
+                <form id="forgot-password-form">
+                    <h3>Forgot Password</h3>
+                    <p>Enter your email to receive a password reset link.</p>
+                    <input type="email" id="forgot-email" placeholder="Email" required>
+                    <button type="submit" class="btn">Send Link</button>
+                    <p class="message">
+                        <a href="#" id="show-login-from-forgot">Back to Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-container hidden" id="dashboard">
+        <header class="header">
+            <h1 class="title">Dashboard</h1>
+            <button class="btn" id="logout-btn">Logout</button>
+        </header>
+
+        <section class="dashboard-content">
+            <div class="user-info card">
+                <h3>Welcome, <span id="user-name">User</span>!</h3>
+                <p>RFID Card ID: <span id="user-rfid">N/A</span></p>
+                <p>Vehicle Plate: <span id="user-plate">N/A</span></p>
+            </div>
+
+            <div class="points-section card">
+                <h4>Rewards Points</h4>
+                <p>Current Points: <span id="user-points">0</span></p>
+                <p id="free-park-message" class="hidden">🎉 Congratulations! Your next parking session is free! 🎉</p>
+            </div>
+
+            <div class="parking-status card">
+                <h4>Parking Status</h4>
+                <p>Parking Slot: <span id="parking-slot">Not Assigned</span></p>
+                <p>Entry Time: <span id="entry-time">N/A</span></p>
+                <p>Checkout Time: <span id="checkout-time">N/A</span></p>
+                <p>Status: <span id="parking-status-text" class="status-out">Parked Out</span></p>
+                <button class="btn" id="check-in-btn">Check In</button>
+                <button class="btn hidden" id="check-out-btn">Check Out</button>
+            </div>
+
+            <div class="payment-section card">
+                <h4>Payment & Balance</h4>
+                <p>Current Balance: ₱<span id="account-balance">0.00</span></p>
+                <div class="payment-options">
+                    <p>Pay with:</p>
+                    <div class="payment-option gcash">
+                        <img src="https://logolook.net/wp-content/uploads/2023/07/GCash-Logo.png" alt="GCash">
+                        <span>GCash</span>
+                    </div>
+                    <div class="payment-option maya">
+                        <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/maya_logo_icon_169351.png" alt="Maya">
+                        <span>Maya</span>
+                    </div>
+                </div>
+                <p class="payment-status-message"></p>
+            </div>
+
+            <div class="parking-lot-status card">
+                <h4>Parking Lot Status</h4>
+                <div class="parking-lots" id="parking-lots">
+                    </div>
+            </div>
+
+            <div class="parking-history card">
+                <h4>Parking History</h4>
+                <div id="history-list">
+                    </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
